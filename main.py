@@ -55,7 +55,7 @@ def auth():
         return "No such data in request", 400
     user = User.query.filter_by(login=login).first()
     if not user or not check_password_hash(user.password, passwd):
-        return "login or password not match", 400
+        return "login or password not match", 401
     return "success", 200
 
 
